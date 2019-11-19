@@ -1,0 +1,79 @@
+﻿System:Ubuntu16.04
+
+一、安装依赖项：
+For a manual installation, the following dependencies are required: 
+python2-numpy, python2-scipy, swig, cppunit, fftw, gnuradio, libvolk, log4cpp, cmake, wx, and liquid-dsp.
+
+更新：sudo apt-get update
+Install python2-numpy: sudo apt-get install python-numpy
+Install python2-scipy: sudo apt-get install python-scipy
+Install swig: 参考https://blog.csdn.net/zhangkzz/article/details/88555830
+Install cppunit： sudo apt-get install libcppunit-dev
+Install fftw: sudo apt-get install fftw3
+Install gnuradio: 
+   Prepare the build environment: sudo vim /etc/apt/sources.list
+   append the following:(Press I for editting, Ctrl+C, Ctrl+Shift+V to paste, esc to exit editting, then enter :wq to quit)
+------------------------------------
+deb http://mirrors.ustc.edu.cn/ubuntu/ xenial main restricted universe multiverse
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial main restricted universe multiverse
+deb http://mirrors.ustc.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse
+deb http://mirrors.ustc.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
+deb http://mirrors.ustc.edu.cn/ubuntu xenial-security main restricted universe multiverse
+deb-src http://mirrors.ustc.edu.cn/ubuntu xenial-security main restricted universe multiverse
+------------------------------------
+   sudo apt-get update
+   sudo apt-get dist-upgrade
+
+Install libvolk: sudo apt-get install libvolk1-bin libvolk1-dev libvolk1-dev
+Install log4cpp: 参考https://blog.csdn.net/rain_qingtian/article/details/41849047
+Install cmake: 参考https://blog.csdn.net/guinailu/article/details/84791973
+Install wx: pip install wxPython
+Install liquid-dsp:
+    git clone git://github.com/jgaeddert/liquid-dsp.git
+    cd liquid-dsp
+    ./bootstrap.sh
+    ./configure
+    make
+    sudo make install
+
+安装完成后，在命令行界面输入gnuradio-companion,出现gnuradio的可视化界面
+安装gnuradio-compnion中的osmocom模块：参考https://blog.csdn.net/iteye_11684/article/details/82610629
+
+二、安装：
+git clone https://github.com/rpp0/gr-lora.git .
+mkdir build
+cd build
+cmake ../  # Note to Arch Linux users: add "-DCMAKE_INSTALL_PREFIX=/usr"
+make && sudo make install
+
+三、测试是否安装成功：
+（切换到gr-lora目录下）
+To test your installation, you can simply run the example app apps/lora_receive_file_nogui.py. The script will download an example trace, and attempt to decode it using gr-lora. You should see the following output:
+
+$ ./lora_receive_file_nogui.py
+[?] Download test LoRa signal to decode? [y/N] y
+[+] Downloading https://research.edm.uhasselt.be/probyns/lora/usrp-868.1-sf7-cr4-bw125-crc-0.sigmf-data -> ./example-trace.sigmf-data . . . . . . . . . . . . . . . . . .
+[+] Downloading https://research.edm.uhasselt.be/probyns/lora/usrp-868.1-sf7-cr4-bw125-crc-0.sigmf-meta -> ./example-trace.sigmf-meta . .
+[+] Configuration: 868.1 MHz, SF 7, CR 4/8, BW 125 kHz, prlen 8, crc on, implicit off
+[+] Decoding. You should see a header, followed by 'deadbeef' and a CRC 5 times.
+Bits (nominal) per symbol: 	3.5
+Bins per symbol: 	128
+Samples per symbol: 	1024
+Decimation: 		8
+ 04 90 40 de ad be ef 70 0d
+ 04 90 40 de ad be ef 70 0d
+ 04 90 40 de ad be ef 70 0d
+ 04 90 40 de ad be ef 70 0d
+ 04 90 40 de ad be ef 70 0d
+[+] Done
+若该py文件可以成功运行，说明安装成功。
+
+四、使用：
+实时的lora信号接收程序在gr-lora/apps/lora_receive_realtime.grc，其对应的py文件为该目录下的lora_receive_realtime.py
+在grc文件中，可以调节的Variable：samp_rate(1M或5M)，capture_freq(433M)，sf(7),bw(125k),target_freq(433M)
+在osmocom Source后加File Sink模块存储数据，后加WX GUI Constellation可看星座图
+
+
+
