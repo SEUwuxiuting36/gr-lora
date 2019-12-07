@@ -379,7 +379,7 @@ for better performance, but worse accuracy.</value>
     </param>
     <param>
       <key>file</key>
-      <value>/home/wxt/Downloads/gr-lora/data/2/No2_74</value>
+      <value>/home/wxt/Downloads/gr-lora/data/3/No3_6</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -548,7 +548,7 @@ for better performance, but worse accuracy.</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>

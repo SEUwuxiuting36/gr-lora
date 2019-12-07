@@ -49,7 +49,7 @@ namespace gr {
             message_port_register_in(pmt::mp("in"));
             set_msg_handler(pmt::mp("in"), boost::bind(&message_socket_sink_impl::handle, this, _1));
 
-            d_socket = socket(AF_INET, SOCK_DGRAM, 0);
+            d_socket = socket(AF_INET, SOCK_STREAM, 0);
 
             if(d_socket < 0) {
                 perror("[message_socket_sink] Failed to create socket!");
@@ -61,14 +61,18 @@ namespace gr {
             d_sock_addr->sin_addr.s_addr  = htonl(INADDR_ANY);
             d_sock_addr->sin_port         = htons(0);    // Source port: 0 is any
 
-            if(bind(d_socket, (const struct sockaddr*) d_sock_addr, sizeof(*d_sock_addr)) < 0) {
+            /*if(bind(d_socket, (const struct sockaddr*) d_sock_addr, sizeof(*d_sock_addr)) < 0) {
                 perror("[message_socket_sink] Socket bind failed!");
                 exit(EXIT_FAILURE);
-            }
+            }*/
 
             d_sock_addr->sin_port = htons(d_port);
             // IP string to int conversion
             inet_pton(AF_INET, d_ip.c_str(), &d_sock_addr->sin_addr.s_addr);
+            if (connect(d_socket, (const struct sockaddr*)d_sock_addr, sizeof(*d_sock_addr)) < 0) {
+                perror("[message_socket_sink] Socket connect failed!");
+                exit(EXIT_FAILURE);
+            }
         }
 
         /**
@@ -115,7 +119,8 @@ namespace gr {
                     break;
             }
 
-            if (sendto(d_socket, msg, msg_len, 0, (const struct sockaddr*)d_sock_addr, sizeof(*d_sock_addr)) != msg_len) {
+            send(d_socket, &msg_len, 4, 0);
+            if (send(d_socket, msg, msg_len, 0) < 0) {
                 perror("message_socket_sink_impl::handle: mismatch in number of bytes sent");
                 exit(EXIT_FAILURE);
             }

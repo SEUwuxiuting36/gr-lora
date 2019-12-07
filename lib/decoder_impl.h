@@ -26,6 +26,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <sstream>
 #include <lora/debugger.h>
 #include <volk/volk.h>
 #include <lora/loraphy.h>
@@ -111,6 +112,7 @@ namespace gr {
 
                 std::ofstream d_debug_samples;              ///< Debug utputstream for complex values.
                 std::ofstream d_debug;                      ///< Outputstream for the debug log.
+                std::ostringstream d_raw_samples;           ///< raw samples
 
                 fftplan d_q;                                ///< The LiquidDSP::FFT_Plan.
                 fftplan d_qr;                               ///< The LiquidDSP::FFT_Plan in reverse.
@@ -189,6 +191,16 @@ namespace gr {
                  *          Length of said complex array.
                  */
                 void samples_debug(const gr_complex *v, const uint32_t length);
+
+                /**
+                 *  \brief  Write the given complex array to the d_raw_samples outputstream.
+                 *
+                 *  \param  v
+                 *          The complex array.
+                 *  \param  length
+                 *          Length of said complex array.
+                 */
+                void samples_save(const gr_complex *v, const uint32_t length);
 
                 /**
                  *  \brief  Correct the shift of the given symbol to match the ideal upchirp by sliding cross correlating.

@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Lora Receive Realtime
-# Generated: Tue Nov 19 14:40:29 2019
+# Generated: Tue Dec  3 15:43:54 2019
 ##################################################
 
 if __name__ == '__main__':
@@ -83,15 +83,13 @@ class lora_receive_realtime(grc_wxgui.top_block_gui):
         self.uhd_usrp_source_0.set_center_freq(capture_freq, 0)
         self.uhd_usrp_source_0.set_gain(50, 0)
         self.uhd_usrp_source_0.set_antenna("RX2", 0)
-        self.lora_message_socket_sink_0 = lora.message_socket_sink("127.0.0.1", 8000, 0)
         self.lora_lora_receiver_0 = lora.lora_receiver(samp_rate, capture_freq, (target_freq, ), bw, sf, False, 3, False, False, downlink, decimation, False, False)
-        self.blocks_file_sink_0 = blocks.file_sink(gr.sizeof_gr_complex*1, "/home/wxt/Downloads/gr-lora/data/2/No2_74", False)
+        self.blocks_file_sink_0 = blocks.file_sink(gr.sizeof_gr_complex*1, "/home/wxt/Downloads/gr-lora/data/3/No3_6", False)
         self.blocks_file_sink_0.set_unbuffered(False)
 
         ##################################################
         # Connections
         ##################################################
-        self.msg_connect((self.lora_lora_receiver_0, 'frames'), (self.lora_message_socket_sink_0, 'in'))    
         self.connect((self.uhd_usrp_source_0, 0), (self.blocks_file_sink_0, 0))    
         self.connect((self.uhd_usrp_source_0, 0), (self.lora_lora_receiver_0, 0))    
         self.connect((self.uhd_usrp_source_0, 0), (self.wxgui_fftsink2_1, 0))    

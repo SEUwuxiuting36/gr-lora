@@ -2,29 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="010dd2cb-fe3a-42fc-af5d-0fe05a2a8d85" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/apps/generate_test_suites.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/generate_test_suites.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/grlora_analyze.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/grlora_analyze.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/lora_receive_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/lora_receive_file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/lora_receive_file_nogui.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/lora_receive_file_nogui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/lora_receive_realtime.grc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/lora_receive_realtime.grc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/lora_receive_realtime.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/lora_receive_realtime.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker_build_image.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker_build_image.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker_run_grlora.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker_run_grlora.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/mkimage-arch.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mkimage-arch.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/wiki/tutorial01/grlora_rtlsdr.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/wiki/tutorial01/grlora_rtlsdr.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/lora/decoder.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/lora/decoder.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/lora/message_file_sink.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/lora/message_file_sink.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/lora/message_socket_sink.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/lora/message_socket_sink.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/channelizer_impl.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/channelizer_impl.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/decoder_impl.cc" beforeDir="false" afterPath="$PROJECT_DIR$/lib/decoder_impl.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/message_file_sink_impl.cc" beforeDir="false" afterPath="$PROJECT_DIR$/lib/message_file_sink_impl.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/message_file_sink_impl.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/message_file_sink_impl.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/message_socket_sink_impl.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/message_socket_sink_impl.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/qa_message_socket_sink.cc" beforeDir="false" afterPath="$PROJECT_DIR$/lib/qa_message_socket_sink.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/python/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/message_mongodb_sink.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/message_mongodb_sink.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/qa_receiver.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/qa_receiver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/qa_testsuite.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/qa_testsuite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/decoder_impl.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/decoder_impl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/message_socket_sink_impl.cc" beforeDir="false" afterPath="$PROJECT_DIR$/lib/message_socket_sink_impl.cc" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,46 +17,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/lora/message_socket_source.h">
+        <entry file="file://$PROJECT_DIR$/lib/decoder_impl.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="694" column="42" selection-start-line="694" selection-start-column="42" selection-end-line="694" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/lora_receive_realtime.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1444">
-              <caret line="76" column="28" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/message_file_sink_impl.cc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/qa_message_socket_sink.cc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="-1493">
+              <caret line="756" column="53" selection-start-line="756" selection-start-column="43" selection-end-line="756" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/decoder_impl.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3154">
+              <caret line="190" column="43" lean-forward="true" selection-start-line="190" selection-start-column="43" selection-end-line="190" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/message_socket_sink_impl.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="51" column="54" lean-forward="true" selection-start-line="51" selection-start-column="54" selection-end-line="51" selection-end-column="54" />
+            <state relative-caret-position="781">
+              <caret line="121" column="43" selection-start-line="121" selection-start-column="43" selection-end-line="121" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -130,11 +94,13 @@
       <find>message_port_pub</find>
       <find>d_decoded</find>
       <find>detect_preamble_autocorr</find>
-      <find>msg_lora_frame</find>
       <find>detect_preamble_autocor</find>
       <find>d_samples_per_symbol</find>
-      <find>detect_upchirp</find>
       <find>samples_to_file</find>
+      <find>d_debug_sam</find>
+      <find>detect_upchirp</find>
+      <find>samples_debug</find>
+      <find>msg_lora_frame</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -157,8 +123,9 @@
         <option value="$PROJECT_DIR$/lib/message_file_sink_impl.cc" />
         <option value="$PROJECT_DIR$/apps/lora_receive_realtime.py" />
         <option value="$PROJECT_DIR$/lib/message_socket_sink_impl.h" />
-        <option value="$PROJECT_DIR$/lib/decoder_impl.cc" />
         <option value="$PROJECT_DIR$/lib/message_socket_sink_impl.cc" />
+        <option value="$PROJECT_DIR$/lib/decoder_impl.h" />
+        <option value="$PROJECT_DIR$/lib/decoder_impl.cc" />
       </list>
     </option>
   </component>
@@ -360,7 +327,7 @@
     <frame x="65" y="-4" width="1375" height="904" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17307693" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23076923" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -371,7 +338,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32958803" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32958803" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3288835" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -597,41 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/decoder_impl.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1235">
-          <caret line="739" selection-start-line="739" selection-end-line="739" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/decoder_impl.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2071">
-          <caret line="109" column="48" selection-start-line="109" selection-start-column="48" selection-end-line="109" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/lora_receive_realtime.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1444">
-          <caret line="76" column="28" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/message_file_sink_impl.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/qa_message_socket_sink.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/message_socket_sink_impl.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="817">
@@ -645,10 +577,17 @@
     <entry file="file://$PROJECT_DIR$/python/build_utils_codes.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/lora/message_socket_sink.h">
+    <entry file="file://$PROJECT_DIR$/lib/message_file_sink_impl.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="18" column="57" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="57" />
+        <state relative-caret-position="209">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/lora_receive_realtime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="76" column="28" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -659,6 +598,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/qa_message_socket_sink.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/include/lora/message_file_sink.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-174">
@@ -666,10 +612,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/include/lora/message_socket_sink.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="18" column="57" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/message_socket_sink_impl.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="51" column="54" lean-forward="true" selection-start-line="51" selection-start-column="54" selection-end-line="51" selection-end-column="54" />
+        <state relative-caret-position="781">
+          <caret line="121" column="43" selection-start-line="121" selection-start-column="43" selection-end-line="121" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/decoder_impl.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1493">
+          <caret line="756" column="53" selection-start-line="756" selection-start-column="43" selection-end-line="756" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/decoder_impl.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3154">
+          <caret line="190" column="43" lean-forward="true" selection-start-line="190" selection-start-column="43" selection-end-line="190" selection-end-column="43" />
         </state>
       </provider>
     </entry>

@@ -226,6 +226,12 @@ namespace gr {
             #endif
         }
 
+        void decoder_impl::samples_save(const gr_complex *v, const uint32_t length) {
+            for (uint32_t i = 0u; i < length; i++) {
+                d_raw_samples.write(reinterpret_cast<const char *>(&v[i]), sizeof(gr_complex));
+            }
+        }
+
         inline void decoder_impl::instantaneous_frequency(const gr_complex *in_samples, float *out_ifreq, const uint32_t window) {
             if (window < 2u) {
                 std::cerr << "[LoRa Decoder] WARNING : window size < 2 !" << std::endl;
@@ -587,7 +593,9 @@ namespace gr {
         }
 
         void decoder_impl::msg_lora_frame(void) {
-            uint32_t len = sizeof(loratap_header_t) + sizeof(loraphy_header_t) + d_payload_length;
+            std::string raw = d_raw_samples.str();
+            uint32_t rawlen = raw.size();
+            uint32_t len = sizeof(loratap_header_t) + sizeof(loraphy_header_t) + d_payload_length + sizeof(rawlen) + rawlen;
             uint32_t offset = 0;
             uint8_t buffer[len];
             loratap_header_t loratap_header;
@@ -597,6 +605,8 @@ namespace gr {
 
             loratap_header.rssi.snr = (uint8_t)(10.0f * log10(d_snr) + 0.5);
 
+            offset = gr::lora::build_packet(buffer, offset, &rawlen, sizeof(rawlen));
+            offset = gr::lora::build_packet(buffer, offset, raw.c_str(), rawlen);
             offset = gr::lora::build_packet(buffer, offset, &loratap_header, sizeof(loratap_header_t));
             offset = gr::lora::build_packet(buffer, offset, &d_phdr, sizeof(loraphy_header_t));
             offset = gr::lora::build_packet(buffer, offset, &d_decoded[0], d_payload_length);
@@ -764,6 +774,10 @@ namespace gr {
                         #endif
                         d_corr_fails = 0u;
                         d_state = gr::lora::DecoderState::SYNC;
+
+                        d_raw_samples.str("");
+                        samples_save(input, d_samples_per_symbol);
+
                         break;
                     }
 
@@ -784,7 +798,9 @@ namespace gr {
 
                     samples_to_file("/tmp/detect",  &input[i], d_samples_per_symbol, sizeof(gr_complex));
 
+                    samples_save(input, i);
                     consume_each(i);
+
                     d_state = gr::lora::DecoderState::FIND_SFD;
                     break;
                 }
@@ -818,8 +834,9 @@ namespace gr {
                             #endif
                         }
                     }
-
+                    samples_save(input, (int32_t)d_samples_per_symbol+d_fine_sync);
                     consume_each((int32_t)d_samples_per_symbol+d_fine_sync);
+
                     break;
                 }
 
@@ -830,6 +847,7 @@ namespace gr {
                     } else {
                         d_state = gr::lora::DecoderState::DECODE_HEADER;
                     }
+                    samples_save(input, d_samples_per_symbol + d_delay_after_sync);
                     consume_each(d_samples_per_symbol + d_delay_after_sync);
                     break;
                 }
@@ -862,12 +880,14 @@ namespace gr {
 
                         d_state = gr::lora::DecoderState::DECODE_PAYLOAD;
                     }
-
+                    samples_save(input, (int32_t)d_samples_per_symbol+d_fine_sync);
                     consume_each((int32_t)d_samples_per_symbol+d_fine_sync);
                     break;
                 }
 
                 case gr::lora::DecoderState::DECODE_PAYLOAD: {
+                    samples_save(input, (int32_t)d_samples_per_symbol+d_fine_sync);
+
                     if (d_implicit && determine_energy(input) < d_energy_threshold) {
                         d_payload_symbols = 0;
                         //d_demodulated.erase(d_demodulated.begin(), d_demodulated.begin() + 7u); // Test for SF 8 with header
@@ -888,6 +908,7 @@ namespace gr {
                         d_words_dewhitened.clear();
                         d_words_deshuffled.clear();
                         d_demodulated.clear();
+                        d_raw_samples.str("");
                     }
 
                     consume_each((int32_t)d_samples_per_symbol+d_fine_sync);
@@ -896,6 +917,7 @@ namespace gr {
                 }
 
                 case gr::lora::DecoderState::STOP: {
+                    samples_save(input, d_samples_per_symbol);
                     consume_each(d_samples_per_symbol);
                     break;
                 }
